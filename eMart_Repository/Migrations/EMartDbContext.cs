@@ -28,6 +28,8 @@ namespace eMart_Repository.Migrations
                 .WithOne(e => e.Product)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Product>().Property(x => x.Id).ValueGeneratedOnAdd();
+
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.Products)
                 .WithOne(e => e.Category)
@@ -43,6 +45,7 @@ namespace eMart_Repository.Migrations
                 .WithOne(e => e.Order)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Order>().Property(x => x.Id).ValueGeneratedOnAdd();
         }
 
 

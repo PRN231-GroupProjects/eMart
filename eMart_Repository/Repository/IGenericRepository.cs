@@ -10,22 +10,19 @@ namespace eMart_Repository.Repository
 
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        IEnumerable<TEntity> Get(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-            string includeProperties = "",
-            int? pageIndex = null,
-            int? pageSize = null);
-
-        TEntity GetByID(object id);
-
         void Insert(TEntity entity);
-
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
         void Delete(object id);
+        TEntity? GetById(object? id);
 
-        void Delete(TEntity entityToDelete);
-
-        void Update(TEntity entityToUpdate);
+        IEnumerable<TEntity> Get(
+            int? pageIndex = null,
+            int? pageSize = null,
+            params Expression<Func<TEntity, object>>[] includeProperties);
+        
+        IQueryable<TEntity> FindByCondition(Expression<Func<TEntity, bool>> expression, int? pageIndex, int? pageSize, params Expression<Func<TEntity, object>>[]? includeProperties);
+        IQueryable<TEntity> FindByCondition(Expression<Func<TEntity, bool>> expression, params Expression<Func<TEntity, object>>[]? includeProperties);
     }
 
 }
