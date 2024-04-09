@@ -1,0 +1,30 @@
+[
+  {
+    "Email": "john.doe@example.com",
+    "CompanyName": "ABC Corporation",
+    "City": "New York",
+    "Password": "abc",
+    "Country": "USA"
+  },
+  {
+    "Email": "jane.smith@example.com",
+    "CompanyName": "XYZ Industries",
+    "City": "London",
+    "Password": "abc",
+    "Country": "UK"
+  },
+  {
+    "Email": "alex.wong@example.com",
+    "CompanyName": "123 Corporation",
+    "City": "Tokyo",
+    "Password": "abc",
+    "Country": "Japan"
+  },
+  {
+    "Email": "maria.garcia@example.com",
+    "CompanyName": "DEF Enterprises",
+    "City": "Madrid",
+    "Password": "abc",
+    "Country": "Spain"
+  }
+]

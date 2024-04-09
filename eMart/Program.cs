@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using eMart.Config;
 using eMart_Repository.Migrations;
+using eMart_Repository.Seed;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,7 +35,9 @@ if (app.Environment.IsDevelopment())
 }
 var scope = app.Services.CreateScope();
 var context = scope.ServiceProvider.GetRequiredService<EMartDbContext>();
-await context.Database.MigrateAsync();   
+await context.Database.EnsureDeletedAsync();
+await context.Database.MigrateAsync();
+await DataSeeder.Seed(context); 
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseSession();

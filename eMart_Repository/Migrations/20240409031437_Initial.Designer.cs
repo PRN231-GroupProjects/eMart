@@ -12,7 +12,7 @@ using eMart_Repository.Migrations;
 namespace eMart_Repository.Migrations
 {
     [DbContext(typeof(EMartDbContext))]
-    [Migration("20240408021938_Initial")]
+    [Migration("20240409031437_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
